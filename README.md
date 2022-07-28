@@ -4,3 +4,6 @@
 ## Dependencies:
 ### React Bootstrap
 https://react-bootstrap.github.io/getting-started/introduction
+
+## React Icons
+https://react-icons.github.io/react-icons/
