@@ -1,24 +1,22 @@
 import Container from "react-bootstrap/Container";
-
-import Navbar from "react-bootstrap/Navbar";
-
+import Navbar from "react-bootstrap/Navbar"
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Col from "react-bootstrap/Col";
 // Hooks
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
 import { SearchBar } from "./SearchBar/SearchBar";
 import { NavbarItems } from "./NavbarItems/NavbarItems";
 import { UsersDropdown } from "./UsersDropdown/UsersDropdown";
 
-function NavbarMenu() {
+export const NavbarMenu = () => {
+
   const { width } = useWindowDimensions();
 
   let expand = "lg";
 
   return (
-    <>
-      <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+    <Navbar key={expand} bg="light" expand={expand} className="mb-3">
         <Container fluid>
           {width <= 992 && (<Col></Col>)}
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -47,8 +45,5 @@ function NavbarMenu() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-    </>
-  );
+  )
 }
-
-export default NavbarMenu;
