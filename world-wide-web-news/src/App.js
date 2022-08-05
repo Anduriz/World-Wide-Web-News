@@ -1,11 +1,14 @@
 // Styles
 import './App.css';
 // Components
+import NavbarMenu from './components/NavbarMenu/NavbarMenu.jsx';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <h1>World Wide Web News</h1>
+      <Header />
+      <NavbarMenu />
     </div>
   );
 }
