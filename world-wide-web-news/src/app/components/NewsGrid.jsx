@@ -18,10 +18,10 @@ const [items, setItems] = useState([]);
   }, [])
   
   return (
-    <Row xs={1} md={4} className="g-4">
+    <Row lg={4} md={1} className="g-4">
       {
         items.map( ({title, description, urlToImage, source, url}) => (
-            <Col>
+            <Col className="d-flex justify-content-center">
                 <NewsItem title={title} description={description} urlToImage={urlToImage} source={source} url={url}/>
             </Col>
         )
