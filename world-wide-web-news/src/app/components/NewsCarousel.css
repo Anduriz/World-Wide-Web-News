@@ -1,0 +1,10 @@
+.moduleItemNewsCarousel {
+    overflow: hidden;
+    position: relative;
+    height: 28rem;
+}
+.moduleItemNewsCarousel img {
+    position: relative;
+    width: 100%;
+    height:auto;
+}

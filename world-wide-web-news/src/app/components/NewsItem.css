@@ -1,0 +1,10 @@
+.moduleItemIntrotext {
+    overflow: hidden;
+    position: relative;
+    height: 12rem;
+}
+.moduleItemIntrotext img {
+    position: relative;
+    width: 100%;
+    height:auto;
+}

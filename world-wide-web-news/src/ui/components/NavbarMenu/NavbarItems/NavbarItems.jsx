@@ -1,16 +1,26 @@
+import { NavLink } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 
 export const NavbarItems = () => {
   return (
     <div>
       <Nav className="justify-content-center">
-        <Nav.Link href="#action1">Home</Nav.Link>
-        <Nav.Link href="#action2">Tech</Nav.Link>
-        <Nav.Link href="#action2">Science</Nav.Link>
-        <Nav.Link href="#action2">Movies</Nav.Link>
-        <Nav.Link href="#action2">Style</Nav.Link>
-        <Nav.Link href="#action2">Arts</Nav.Link>
+        <NavLink to="/" className="nav-link">
+          Home
+        </NavLink>
+        <NavLink to="/technology" className="nav-link">
+          Tech
+        </NavLink>
+        <NavLink to="/science" className="nav-link">
+          Science
+        </NavLink>
+        <NavLink to="/entertainment" className="nav-link">
+          Entertainment
+        </NavLink>
+        <NavLink to="/sports" className="nav-link">
+          Sports
+        </NavLink>
       </Nav>
     </div>
-  )
-}
+  );
+};

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { getTopNews } from '../helpers/getTopNews'
 
+import "./NewsCarousel.css";
+
 export const NewsCarousel = () => {
 
     const [items, setItems] = useState([]);
@@ -16,18 +18,18 @@ export const NewsCarousel = () => {
   }, [])
 
   return (
-    <Carousel style={{width:'50rem'}}>
+    <Carousel style={{ height: '28rem' }} className="mb-3">
       { items.map( ({urlToImage, title, description}) => (
         <Carousel.Item>
-        <img
-          className="d-block"
-          style={{width:'100%', height:'25rem'}}
-          src={urlToImage}
-          alt={title}
-        />
+          <div className="moduleItemNewsCarousel">
+            <img
+              src={urlToImage}
+              alt={title}
+            />
+          </div>
         <Carousel.Caption>
           <h3>{title}</h3>
-          {/* <p>{description}</p> */}
+          <p>{description}</p>
         </Carousel.Caption>
       </Carousel.Item>
       )) }

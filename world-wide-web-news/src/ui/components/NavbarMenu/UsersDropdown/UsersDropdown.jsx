@@ -11,13 +11,13 @@ export const UsersDropdown = ({expand}) => {
             align={{ lg: 'end' }}
             id={`offcanvasNavbarDropdown-expand-${expand}`}
           >
-            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+            {/* <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action4">
               Another action
             </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action5">
-              Something else here
+            <NavDropdown.Divider /> */}
+            <NavDropdown.Item href="/login">
+              Logout
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>

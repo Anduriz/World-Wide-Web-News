@@ -1,32 +1,26 @@
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { NewsItem } from "./NewsItem";
-import { getNews } from '../helpers/getNews'
-import { useEffect, useState } from "react";
+import { useFetchNews } from "../hooks/useFetchNews";
 
-export const NewsGrid = () => {
+export const NewsGrid = ({ category }) => {
 
-const [items, setItems] = useState([]);
-
-    const getItems = async() => {
-        const newItems = await getNews();
-        setItems(newItems);
-    }
-
-  useEffect(() => {
-    getItems();
-  }, [])
+  const { items, isLoading } = useFetchNews(category);
   
   return (
-    <Row lg={4} md={1} className="g-4">
-      {
-        items.map( ({title, description, urlToImage, source, url}) => (
-            <Col className="d-flex justify-content-center">
-                <NewsItem title={title} description={description} urlToImage={urlToImage} source={source} url={url}/>
-            </Col>
-        )
-        )
-      }
-    </Row>
+    <>
+      { isLoading ? ( <h3>CARGANDO...</h3> ) : (
+      <Row lg={4} md={1} className="g-4">
+        {
+          items.map( ({title, description, urlToImage, source, url}) => (
+              <Col className="d-flex justify-content-center">
+                  <NewsItem title={title} description={description} urlToImage={urlToImage} source={source} url={url}/>
+              </Col>
+          )
+          )
+        }
+      </Row>
+      )}
+    </>
   );
 };

@@ -1,11 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import './NewsItem.css';
 
 export const NewsItem = ({ title, description, urlToImage, source, url }) => {
   return (
     <Card style={{ width: '50rem' }}>
       <Card.Header>{source.name}</Card.Header>
-      <Card.Img variant="top" src={urlToImage} alt={title}/>
+      <div className="moduleItemIntrotext">
+        <Card.Img variant="top" src={urlToImage} alt={title}/>
+      </div>
       <Card.Body>
         <Card.Title>
             {title}

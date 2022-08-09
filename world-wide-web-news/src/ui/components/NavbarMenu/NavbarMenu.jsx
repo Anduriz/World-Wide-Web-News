@@ -9,6 +9,8 @@ import { SearchBar } from "./SearchBar/SearchBar";
 import { NavbarItems } from "./NavbarItems/NavbarItems";
 import { UsersDropdown } from "./UsersDropdown/UsersDropdown";
 
+import "./NaBarMenu.css"
+
 export const NavbarMenu = () => {
 
   const { width } = useWindowDimensions();
@@ -16,7 +18,7 @@ export const NavbarMenu = () => {
   let expand = "lg";
 
   return (
-    <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+    <Navbar bg="light" expand={expand} className="mb-3">
         <Container fluid>
           {width <= 992 && (<Col></Col>)}
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -26,7 +28,7 @@ export const NavbarMenu = () => {
             placement="end"
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} className="title">
                 Word Wide Web News
               </Offcanvas.Title>
             </Offcanvas.Header>

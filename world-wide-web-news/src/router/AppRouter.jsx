@@ -1,15 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage, OtherPage } from "../app/pages";
-import { Header, NavbarMenu } from '../ui/components'
+import { AppRoutes } from "../app/routes/AppRoutes";
+import { LoginPage } from "../auth/page/LoginPage";
 
 export const AppRouter = () => {
   return (
     <>
-      <Header />
-      <NavbarMenu />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/*" element={<OtherPage />} />
+        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/*" element={<AppRoutes/>} />
       </Routes>
     </>
   );
