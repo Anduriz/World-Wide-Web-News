@@ -8,15 +8,17 @@ export const AppRoutes = () => {
     <>
       <Header />
       <NavbarMenu />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/technology" element={<CategoryPage category="technology" />}/>
-        <Route path="/science" element={<CategoryPage category="science" />} />
-        <Route path="/entertainment" element={<CategoryPage category="entertainment" />} />
-        <Route path="/sports" element={<CategoryPage category="sports" />} />
-        <Route path="/news" element={<NewsPage/>} />
-        <Route path="/*" element={<ErrorPage/>} />
-      </Routes>
+      <div className="justify-content-center m-4">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/technology" element={<CategoryPage category="technology" />}/>
+          <Route path="/science" element={<CategoryPage category="science" />} />
+          <Route path="/entertainment" element={<CategoryPage category="entertainment" />} />
+          <Route path="/sports" element={<CategoryPage category="sports" />} />
+          <Route path="/news" element={<NewsPage/>} />
+          <Route path="/*" element={<ErrorPage/>} />
+        </Routes>
+      </div>
     </>
   );
 };
