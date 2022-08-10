@@ -18,7 +18,7 @@ export const NewsCarousel = () => {
   }, [])
 
   return (
-    <Carousel style={{ height: '28rem' }} className="mb-3">
+    <Carousel style={{ height: '28rem' }} className="mb-3 animate__animated animate__fadeIn">
       { items.map( ({urlToImage, title, description}) => (
         <Carousel.Item>
           <div className="moduleItemNewsCarousel">

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 // Styles
 import './index.css';
+import 'animate.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Components
 import App from './App';

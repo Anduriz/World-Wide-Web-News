@@ -17,8 +17,8 @@ export const NewsItem = ({ title, description, urlToImage, source, url }) => {
           {description}
         </Card.Text>
       </Card.Body>
-      <Card.Footer className="text-muted">
-        <Button className='w-100' variant="primary" href={url}>Read more</Button>
+      <Card.Footer className="text-muted p-0">
+        <Button style={{borderRadius: '0px'}} className='btn btn-outline-primary w-100' variant="light" href={url}>Read more</Button>
       </Card.Footer>
     </Card>
   )
