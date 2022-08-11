@@ -7,15 +7,18 @@ import { BiLoader } from 'react-icons/bi';
 export const NewsGrid = ({ category }) => {
 
   const { items, isLoading } = useFetchNews(category);
-  
+
   return (
     <>
-      { isLoading ? ( <div className="d-flex justify-content-center"><BiLoader size={50}/></div> ) : (
+      {/* <BiLoader size={50}/> */}
+      { isLoading ? ( 
+      <div className="d-flex justify-content-center"></div>
+       ) : (
       <Row lg={4} md={1} className="g-4">
         {
-          items.map( ({title, description, urlToImage, source, url}) => (
-              <Col className="d-flex justify-content-center animate__animated animate__fadeIn">
-                  <NewsItem title={title} description={description} urlToImage={urlToImage} source={source} url={url}/>
+          items.map( ({uniqueID, title, description, urlToImage, source, url}) => (
+              <Col key={uniqueID} className="d-flex justify-content-center animate__animated animate__fadeIn">
+                  <NewsItem key={uniqueID} title={title} description={description} urlToImage={urlToImage} source={source} url={url} category={category}/>
               </Col>
           )
           )

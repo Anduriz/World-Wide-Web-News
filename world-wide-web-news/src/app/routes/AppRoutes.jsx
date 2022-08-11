@@ -15,8 +15,8 @@ export const AppRoutes = () => {
           <Route path="/science" element={<CategoryPage category="science" />} />
           <Route path="/entertainment" element={<CategoryPage category="entertainment" />} />
           <Route path="/sports" element={<CategoryPage category="sports" />} />
-          <Route path="/news" element={<NewsPage/>} />
-          <Route path="/*" element={<ErrorPage/>} />
+          <Route path="news/:category/:title" element={<NewsPage />} />
+          {/* <Route path="/*" element={<ErrorPage/>} /> */}
         </Routes>
       </div>
     </>

@@ -9,7 +9,7 @@ export const HomePage = () => {
 
   return (
     <>
-      {width >= 992 && (<NewsCarousel/>)}
+      {width >= 992 && (<NewsCarousel category="general"/>)}
       <NewsGrid category="general"/>
     </>
   );
