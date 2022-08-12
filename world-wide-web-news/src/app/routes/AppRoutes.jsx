@@ -6,11 +6,11 @@ import { NewsPage } from "../pages/NewsPage";
 export const AppRoutes = () => {
   return (
     <>
-      <Header />
+      <Header/>
       <NavbarMenu />
       <div className="justify-content-center m-4">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<CategoryPage category="general" />} />
           <Route path="/technology" element={<CategoryPage category="technology" />}/>
           <Route path="/science" element={<CategoryPage category="science" />} />
           <Route path="/entertainment" element={<CategoryPage category="entertainment" />} />

@@ -1,38 +1,27 @@
-import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import { getTopNews } from '../helpers/getTopNews'
-
 import "./NewsCarousel.css";
 
-export const NewsCarousel = () => {
-
-    const [items, setItems] = useState([]);
-
-    const getItems = async() => {
-        const newItems = await getTopNews();
-        setItems(newItems);
-    }
-
-  useEffect(() => {
-    getItems();
-  }, [])
+export const NewsCarousel = ({items}) => {
 
   return (
     <Carousel style={{ height: '28rem' }} className="mb-3 animate__animated animate__fadeIn">
-      { items.map( ({urlToImage, title, description}) => (
-        <Carousel.Item>
-          <div className="moduleItemNewsCarousel">
-            <img
-              src={urlToImage}
-              alt={title}
-            />
-          </div>
-        <Carousel.Caption>
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      )) }
+
+      {
+        items.map( ({uniqueID, urlToImage, title, description}) => (
+          <Carousel.Item key={uniqueID}>
+            <div className="moduleItemNewsCarousel">
+              <img
+                src={urlToImage}
+                alt={title}
+              />
+            </div>
+          <Carousel.Caption>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        )) }
+    
     </Carousel>
   )
 }
