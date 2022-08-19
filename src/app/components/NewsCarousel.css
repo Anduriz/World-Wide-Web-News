@@ -1,0 +1,12 @@
+.moduleItemNewsCarousel {
+    overflow: hidden;
+    position: relative;
+    height: 28rem;
+}
+.moduleItemNewsCarousel img {
+    position: relative;
+    width: 100%;
+    height:auto;
+    -webkit-filter: blur(4px); /* Safari 6.0 - 9.0 */
+    filter: blur(4px);
+}
