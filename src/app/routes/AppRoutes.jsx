@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { CategoryPage, NewsItemPage, ErrorPage } from "../pages/@index";
+import { CategoryPage, NewsItemPage, ErrorPage, SearchPage } from "../pages/@index";
 import { Header, NavbarMenu } from '../../ui/components'
 
 export const AppRoutes = () => {
@@ -15,6 +15,7 @@ export const AppRoutes = () => {
           <Route path="/entertainment" element={<CategoryPage category="entertainment" />} />
           <Route path="/sports" element={<CategoryPage category="sports" />} />
           <Route path="news/:category/:title" element={<NewsItemPage />} />
+          <Route path="search/:keyword" element={<SearchPage />} />
           {/* <Route path="/*" element={<ErrorPage/>} /> */}
         </Routes>
       </div>

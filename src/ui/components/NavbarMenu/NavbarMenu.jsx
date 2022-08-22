@@ -43,7 +43,7 @@ export const NavbarMenu = () => {
                 {/* <SearchBar /> */}
               </Col>
               <Col xs={6}>
-                <SearchBar />
+                <SearchBar handleClose={handleClose}/>
                 <NavbarItems handleClose={handleClose}/>
               </Col>
               <Col>
