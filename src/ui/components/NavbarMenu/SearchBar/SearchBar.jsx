@@ -22,7 +22,7 @@ export const SearchBar = ({handleClose}) => {
     event.preventDefault();
     // if(searchText.trim().length <=1 ) return;
     // console.log({searchText});
-    navigate(`/search/${searchText.toLowerCase().trim()}`);
+    navigate(`${searchText.toLowerCase().trim()}`);
   }
 
   return (
@@ -38,8 +38,8 @@ export const SearchBar = ({handleClose}) => {
               value={searchText}
               onChange={onInputChange}
             />
-            <Button variant="outline-secondary" type="submit">
-              <ImSearch />
+            <Button variant="light rounded-circle" type="submit">
+              <ImSearch className="mb-1"/>
             </Button>
         </Form>
     </div>

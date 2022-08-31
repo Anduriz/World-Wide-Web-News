@@ -3,8 +3,8 @@
 export const Header = () => {
 
   return (
-    <>
-      <h1 className="titulo d-flex justify-content-center mt-3">World Wide Web News</h1>
-    </>
+    <div className="d-flex justify-content-center mt-3">
+      <h1 className="titulo" >World Wide Web News</h1>
+    </div>
   );
 }

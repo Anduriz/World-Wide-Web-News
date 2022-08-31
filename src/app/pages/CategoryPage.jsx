@@ -3,40 +3,40 @@ import { NewsCarousel } from "../components/News.Carousel";
 
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
-import { BiLoader } from 'react-icons/bi';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNews } from "../../@store/slices/news/newsThunks";
+import { CheckingLoading } from "../../ui/components/CheckingLoading/CheckingLoading";
 
 export const CategoryPage = ({ category }) => {
 
   const dispatch = useDispatch();
+  
   const { isLoading, news, page } = useSelector( state => state.news );
 
+  localStorage.setItem('article', JSON.stringify(news));
+
   useEffect(() => {
+    localStorage.removeItem('article');
     dispatch(getNews({page, category}));
   }, [category])
   
-
   const { width } = useWindowDimensions();
 
   const carouselSize = 4;
 
   return (
     <div>
-      {isLoading ? (
-        <div className="d-flex justify-content-center">
-          <BiLoader size={70}/>
-        </div>
-      ) : (
+      { isLoading ? <CheckingLoading/> :
         <>
-          {/* <button onClick={ () => dispatch(getNews({page, category})) }>test</button> */}
-          {width >= 992 && (<NewsCarousel category={`${category}Carousel`} items={news.slice(0, carouselSize)}/>)}
-          <NewsGrid category={`${category}Grid`} items={news.slice(carouselSize)}/>
-          
+          {width >= 992 ? (
+            <>
+              <NewsCarousel category={`${category}Carousel`} items={news.slice(0, carouselSize)}/>
+              <NewsGrid category={`${category}`} items={news.slice(carouselSize)}/>
+            </>
+          ) : ( <NewsGrid category={`${category}`} items={news}/> )}
         </>
-      )}
-     
+      }
     </div>
   );
 };
