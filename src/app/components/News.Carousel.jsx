@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import "./NewsCarousel.css";
-import defaultImage from '../../assets/dafaultImage.png'
+import defaultImage from '../../assets/dafaultImage.jpg'
 
 export const NewsCarousel = ({items}) => {
 

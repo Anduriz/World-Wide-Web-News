@@ -1,13 +1,36 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { AppRoutes } from "../app/routes/AppRoutes";
-import { LoginPage } from "../auth/page/LoginPage";
+import { AuthRoutes } from "../auth/routes/AuthRoutes.jsx";
+import { useCheckAuth } from '../hooks/useCheckAuth';
+import { ErrorPage } from "../app/pages/@index";
+import { CheckingLoading } from "../ui/components/CheckingLoading/CheckingLoading";
+
 
 export const AppRouter = () => {
+
+  const status = useCheckAuth();
+  
+  if(status === 'checking'){
+    return <CheckingLoading/>
+  }
+
   return (
     <>
       <Routes>
-        <Route path="/login" element={<LoginPage/>} />
-        <Route path="/*" element={<AppRoutes/>} />
+        {
+        (status === 'authenticated')
+          ? 
+          <>
+            <Route path="/news/*" element={ <AppRoutes /> } />
+            <Route path='/*' element={<Navigate to='/news'/>}/>
+          </>
+          : 
+          <>
+            <Route path="/auth/*" element={ <AuthRoutes /> }/>
+            <Route path='/*' element={<Navigate to='/auth/login'/>}/> 
+          </>
+        }
+        
       </Routes>
     </>
   );

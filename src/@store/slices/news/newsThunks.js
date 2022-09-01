@@ -8,7 +8,7 @@ const getNews = ({ page = 0, category = 'general' }) => {
         dispatch(startLoadingNews());
 
         // TODO: realizar peticion http con axios
-        const {data} = await newsApi.get(`top-headlines?language=en&category=${category}&pageSize=20&page=1&apiKey=3e93e0b29a7e4e8b931ac3ad4a7439ea`);
+        const {data} = await newsApi.get(`top-headlines?language=en&category=${category}&pageSize=20&page=1&apiKey=fc56d826dbd64ed9af938e1797499a97`);
 
         const news = (data.articles).map( article => ({
             uniqueID: uuidv4(),
@@ -20,7 +20,7 @@ const getNews = ({ page = 0, category = 'general' }) => {
             url: article.url
         }))
 
-        dispatch(setNews({news: news, page: page + 1}));
+        dispatch(setNews({news: news, page: page}));
 
     }
 }
@@ -30,7 +30,7 @@ const getNewsByKeyword = ({page = 0, keyword = ''}) => {
     return  async (dispatch, getState) => {
         dispatch(startLoadingNews());
 
-        const {data} = await newsApi.get(`top-headlines?q=${keyword}&language=en&pageSize=20&page=1&apiKey=3e93e0b29a7e4e8b931ac3ad4a7439ea`);
+        const {data} = await newsApi.get(`top-headlines?q=${keyword}&language=en&pageSize=20&page=1&apiKey=fc56d826dbd64ed9af938e1797499a97`);
 
         const news = (data.articles).map( article => ({
             uniqueID: uuidv4(),
@@ -42,7 +42,7 @@ const getNewsByKeyword = ({page = 0, keyword = ''}) => {
             url: article.url
         }))
 
-        dispatch(setNews({news: news, page: page + 1}));
+        dispatch(setNews({news: news, page: page}));
 
     }
 }

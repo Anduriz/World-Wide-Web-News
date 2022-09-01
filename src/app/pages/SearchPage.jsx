@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsByKeyword } from "../../@store/slices/news/newsThunks";
 import { useParams } from "react-router-dom";
+import { CheckingLoading } from "../../ui/components/CheckingLoading/CheckingLoading";
 
 export const SearchPage = () => {
 
@@ -13,7 +14,10 @@ export const SearchPage = () => {
   const dispatch = useDispatch();
   const { isLoading, news, page } = useSelector( state => state.news );
 
+  localStorage.setItem('article', JSON.stringify(news));
+
   useEffect(() => {
+    localStorage.removeItem('article');
     dispatch(getNewsByKeyword({page, keyword}));
   }, [keyword])
 
@@ -23,22 +27,18 @@ export const SearchPage = () => {
  
   return (
     <div>
-      {isLoading ? (
-        <div className="d-flex justify-content-center">
-          <BiLoader size={70}/>
-        </div>
-      ) : (
+      { isLoading ? <CheckingLoading/> : 
         <>
-            <h2 className="d-flex justify-content-center mb-4">Search results for {keyword}</h2>
-            { showError ? (
-              <div className="d-flex justify-content-center alert alert-danger animate__animated animate__fadeIn">
-                There's no news for:<b>{ keyword }</b>
-              </div>
-            ) : (
-              <NewsGrid category={`${keyword}Grid`} items={news}/>
-            )}
+          <h2 className="d-flex justify-content-center mb-4">Search results for {keyword}</h2>
+          { showError ? (
+            <div className="d-flex justify-content-center alert alert-danger animate__animated animate__fadeIn">
+              There's no news for:<b>{ keyword }</b>
+            </div>
+          ) : (
+            <NewsGrid keyword={`${keyword}`} items={news}/>
+          )}
         </>
-      )}
+      }
      
     </div>
   );
