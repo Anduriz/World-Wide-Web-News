@@ -21,8 +21,6 @@ export const SearchPage = () => {
     dispatch(getNewsByKeyword({page, keyword}));
   }, [keyword])
 
-  console.log(keyword);
-
   const showError = ((keyword.length < 0 ) || (news.length === 0));
  
   return (
