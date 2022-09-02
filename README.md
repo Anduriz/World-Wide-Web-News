@@ -7,7 +7,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory 'world-wide-web-news', you can run:
+In this project directory you have to run:
+
+### `npm install`
+
+To install all the dependencies.
+
+After installing the dependencies you will be able to run:
 
 ### `npm start`
 
