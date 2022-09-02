@@ -1,0 +1,20 @@
+.moduleItemIntrotext {
+    overflow: hidden;
+    position: relative;
+    height: 12rem;
+}
+.moduleItemIntrotext img {
+    position: relative;
+    width: 100%;
+    height:auto;
+}
+
+.newsItemSource{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+}
+
+.newsItemTitle{
+    font-family: 'Antic Slab', serif;
+    font-weight: 400;
+}
